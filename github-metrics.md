@@ -1,1 +1,2 @@
-You did not provide a valid "markdown" query parameter, which is required to use this template.
+![](https://raw.githubusercontent.com/iocion/iocion/refs/heads/output/github-contribution-grid-snake.svg)
+
