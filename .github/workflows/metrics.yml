@@ -1,7 +1,7 @@
 # Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
-  schedule: [{ cron: "0 2 * * *" }]
+  schedule: [{ cron: "0 */4 * * *" }] # Runs every 4 hours
   workflow_dispatch:
   push: { branches: ["master", "main"] }
 jobs:
@@ -12,53 +12,54 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          # GitHub token with required scopes:
-          # - public_access (default)
-          # Optional: read:org, read:user, read:packages, repo (for private repos)
           token: ${{ secrets.METRICS_TOKEN }}
-
-          # Core options
           user: iocion
-          template: markdown # Richer, more customizable template for a cooler look
+          template: markdown
           base: header, activity, community, repositories, metadata
           config_display: large
           config_timezone: Asia/Shanghai
-          config_animations: yes # Enable animations for a dynamic feel
+          config_animations: yes
           config_order: base.header, base.activity, plugin_languages, plugin_topics, plugin_achievements, base.community, base.repositories, base.metadata
+
+          # Markdown plugin to fix the error
+          plugin_markdown: yes
+          markdown: README.md # Output file for metrics
+          markdown_placeholder: "<!-- metrics -->" # Placeholder in README.md where metrics will be inserted
 
           # Achievements plugin
           plugin_achievements: yes
           plugin_achievements_secrets: yes
-          plugin_achievements_threshold: A # Higher threshold for more prestigious achievements
+          plugin_achievements_threshold: A
           plugin_achievements_display: compact
 
           # Languages plugin
           plugin_languages: yes
           plugin_languages_analysis_timeout: 15
           plugin_languages_categories: markup, programming
-          plugin_languages_colors: github # GitHub's vibrant color scheme
+          plugin_languages_colors: github
           plugin_languages_ignored: javascript, css, html, php
-          plugin_languages_limit: 10 # Cleaner display with fewer languages
+          plugin_languages_limit: 10
           plugin_languages_recent_categories: markup, programming
           plugin_languages_recent_days: 14
           plugin_languages_recent_load: 300
           plugin_languages_sections: most-used, recently-used
-          plugin_languages_threshold: 1% # Slightly higher threshold for relevance
+          plugin_languages_threshold: 1%
 
           # Topics plugin
           plugin_topics: yes
-          plugin_topics_limit: 10 # Focus on top topics
-          plugin_topics_mode: icons # Icon-based display for visual appeal
+          plugin_topics_limit: 10
+          plugin_topics_mode: icons
           plugin_topics_sort: stars
 
-          # Additional plugins for a cooler interface
-          plugin_habits: yes # Showcase coding habits
-          plugin_habits_from: 200 # Analyze recent contributions
+          # Habits plugin
+          plugin_habits: yes
+          plugin_habits_from: 200
           plugin_habits_days: 14
           plugin_habits_facts: yes
-          plugin_habits_charts: yes # Visual charts for habits
+          plugin_habits_charts: yes
 
-          plugin_activity: yes # Highlight recent activity
+          # Activity plugin
+          plugin_activity: yes
           plugin_activity_limit: 5
           plugin_activity_days: 14
           plugin_activity_filter: all
