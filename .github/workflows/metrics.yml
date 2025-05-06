@@ -1,7 +1,8 @@
 # Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
-  schedule: [{ cron: "0 */4 * * *" }] # Runs every 4 hours
+  schedule: [{ cron: "0 2 * * *" }]
+  # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: { branches: ["master", "main"] }
 jobs:
@@ -12,54 +13,37 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
           token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
           user: iocion
-          template: markdown
+          template: classic
           base: header, activity, community, repositories, metadata
           config_display: large
           config_timezone: Asia/Shanghai
-          config_animations: yes
-          config_order: base.header, base.activity, plugin_languages, plugin_topics, plugin_achievements, base.community, base.repositories, base.metadata
-
-          # Markdown plugin to fix the error
-          plugin_markdown: yes
-          markdown: README.md # Output file for metrics
-          markdown_placeholder: "<!-- metrics -->" # Placeholder in README.md where metrics will be inserted
-
-          # Achievements plugin
           plugin_achievements: yes
           plugin_achievements_secrets: yes
-          plugin_achievements_threshold: A
-          plugin_achievements_display: compact
-
-          # Languages plugin
+          plugin_achievements_threshold: B
           plugin_languages: yes
           plugin_languages_analysis_timeout: 15
           plugin_languages_categories: markup, programming
           plugin_languages_colors: github
           plugin_languages_ignored: javascript, css, html, php
-          plugin_languages_limit: 10
+          plugin_languages_limit: 20
           plugin_languages_recent_categories: markup, programming
           plugin_languages_recent_days: 14
           plugin_languages_recent_load: 300
-          plugin_languages_sections: most-used, recently-used
-          plugin_languages_threshold: 1%
-
-          # Topics plugin
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
           plugin_topics: yes
-          plugin_topics_limit: 10
-          plugin_topics_mode: icons
+          plugin_topics_limit: 15
+          plugin_topics_mode: starred
           plugin_topics_sort: stars
-
-          # Habits plugin
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-
-          # Activity plugin
-          plugin_activity: yes
-          plugin_activity_limit: 5
-          plugin_activity_days: 14
-          plugin_activity_filter: all
