@@ -3,6 +3,3 @@
 </div>
 ![](https://raw.githubusercontent.com/iocion/iocion/refs/heads/output/github-contribution-grid-snake.svg)
 
-
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
