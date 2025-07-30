@@ -8,8 +8,6 @@
 
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-6%20hrs%2045%20mins-blue)
-
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 **🐱 My GitHub Data** 
@@ -24,45 +22,6 @@
  > 
 > 🔑 0 Private Repositories 
  > 
-**I'm an Early 🐤** 
-
-```text
-🌞 Morning                121 commits         ██████░░░░░░░░░░░░░░░░░░░   23.82 % 
-🌆 Daytime                198 commits         ██████████░░░░░░░░░░░░░░░   38.98 % 
-🌃 Evening                111 commits         █████░░░░░░░░░░░░░░░░░░░░   21.85 % 
-🌙 Night                  78 commits          ████░░░░░░░░░░░░░░░░░░░░░   15.35 % 
-```
-📅 **I'm Most Productive on Thursday** 
-
-```text
-Monday                   95 commits          █████░░░░░░░░░░░░░░░░░░░░   18.70 % 
-Tuesday                  109 commits         █████░░░░░░░░░░░░░░░░░░░░   21.46 % 
-Wednesday                32 commits          ██░░░░░░░░░░░░░░░░░░░░░░░   06.30 % 
-Thursday                 116 commits         ██████░░░░░░░░░░░░░░░░░░░   22.83 % 
-Friday                   51 commits          ███░░░░░░░░░░░░░░░░░░░░░░   10.04 % 
-Saturday                 38 commits          ██░░░░░░░░░░░░░░░░░░░░░░░   07.48 % 
-Sunday                   67 commits          ███░░░░░░░░░░░░░░░░░░░░░░   13.19 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-🕑︎ Time Zone: Asia/Shanghai
-
-💬 Programming Languages: 
-No Activity Tracked This Week
-
-🔥 Editors: 
-No Activity Tracked This Week
-
-🐱‍💻 Projects: 
-No Activity Tracked This Week
-
-💻 Operating System: 
-No Activity Tracked This Week
-```
-
 **I Mostly Code in HTML** 
 
 ```text
@@ -80,5 +39,5 @@ Python                   1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/iocion/iocion/main/assets/bar_graph.png)
 
 
- Last Updated on 28/07/2025 18:52:46 UTC
+ Last Updated on 30/07/2025 18:52:23 UTC
 <!--END_SECTION:waka-->
